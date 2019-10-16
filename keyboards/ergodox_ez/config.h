@@ -34,11 +34,24 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MATRIX_ROWS_PER_SIDE (MATRIX_ROWS / 2)
 #define MATRIX_COLS 6
 
-#define MOUSEKEY_INTERVAL       20
-#define MOUSEKEY_DELAY          0
-#define MOUSEKEY_TIME_TO_MAX    60
-#define MOUSEKEY_MAX_SPEED      7
-#define MOUSEKEY_WHEEL_DELAY 0
+//#define MOUSEKEY_INTERVAL       20
+//#define MOUSEKEY_DELAY          0
+//#define MOUSEKEY_TIME_TO_MAX    60
+//#define MOUSEKEY_MAX_SPEED      7
+/*
+#MOUSEKEY_DELAY	300	Delay between pressing a movement key and cursor movement
+#MOUSEKEY_INTERVAL	50	Time between cursor movements
+#MOUSEKEY_MAX_SPEED	10	Maximum cursor speed at which acceleration stops
+#MOUSEKEY_TIME_TO_MAX	20	Time until maximum cursor speed is reached
+#MOUSEKEY_WHEEL_MAX_SPEED	8	Maximum number of scroll steps per scroll action
+#MOUSEKEY_WHEEL_TIME_TO_MAX	40	Time until maximum scroll speed is reached
+*/
+#define MOUSEKEY_WHEEL_DELAY 1000
+#define MOUSEKEY_WHEEL_MAX_SPEED	0	//Maximum number of scroll steps per scroll action
+#define MOUSEKEY_WHEEL_TIME_TO_MAX	0 //Time until maximum scroll speed is reached
+#define MOUSEKEY_MAX_SPEED 0	//Maximum cursor speed at which acceleration stops
+#define MOUSEKEY_TIME_TO_MAX	0	//Time until maximum cursor speed is reached
+
 
 #define TAPPING_TOGGLE  1
 
