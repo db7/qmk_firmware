@@ -6,11 +6,7 @@
 #define MDIA 2 // media keys
 
 enum custom_keycodes {
-#ifdef ORYX_CONFIGURATOR
-  EPRM = EZ_SAFE_RANGE,
-#else
   EPRM = SAFE_RANGE,
-#endif
   VRSN,
   RGB_SLD
 };
@@ -20,43 +16,43 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * Keymap: Default Layer in QWERTY
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |   `    |   1  |   2  |   3  |   4  |   5  |      |           |      |   6  |   7  |   8  |   9  |   0  |   -    |
+ * |   `    |   1  |   2  |   3  |   4  |   5  | HOME |           | END  |   6  |   7  |   8  |   9  |   0  |   -    |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * |   \    |   Q  |   W  |   E  |   R  |   T  |      |           |   ]  |   Y  |   U  |   I  |   O  |   P  |   [    |
+ * |   \    |   Q  |   W  |   E  |   R  |   T  | ~L1  |           |   ]  |   Y  |   U  |   I  |   O  |   P  |   [    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |  TAB   |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |   ;  |   '    |
- * |--------+------+------+------+------+------| ~L1  |           |   =  |------+------+------+------+------+--------|
- * |  LSFT  |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  |  LSFT  |
+ * |--------+------+------+------+------+------| BTN1 |           |   =  |------+------+------+------+------+--------|
+ * |  LSFT  |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  |  RSFT  |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   | LALT |      |  LFT | RGHT | LGUI |                                       |  LFT |  UP  |  DN  | RGHT | RCTL |
+ *   | LALT |      |      |      | LGUI |                                       |  LFT |  UP  |  DN  | RGHT | RCTL |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
- *                                        |  DEL | Home |       | BTN1 | BTN2 |
+ *                                        |  DEL | PGUP |       | RALT | ~L1  |
  *                                 ,------|------|------|       |------+------+------.
- *                                 |      |      | End  |       | BTN3 |      |      |
+ *                                 |      |      | PGDN |       | BTN2 |      |      |
  *                                 | BSPC |  ESC |------|       |------|  ENT |  SPC |
- *                                 |      |      | LCTL |       | RGui |      |      |
+ *                                 |      |      | LCTL |       | BTN3 |      |      |
  *                                 `--------------------'       `--------------------'
  *
  */
 [BASE] = LAYOUT_ergodox(
   // left hand
-  KC_GRV,          KC_1,        KC_2,          KC_3,    KC_4,    KC_5,    KC_LEFT,
+  KC_GRV,          KC_1,        KC_2,          KC_3,    KC_4,    KC_5,    KC_HOME,
   KC_BSLS,         KC_Q,        KC_W,          KC_E,    KC_R,    KC_T,    TG(SYMB),
   KC_TAB,          KC_A,        KC_S,          KC_D,    KC_F,    KC_G,
-  KC_LSFT,         KC_Z,        KC_X,          KC_C,    KC_V,    KC_B,    TT(SYMB),
+  KC_LSFT,         KC_Z,        KC_X,          KC_C,    KC_V,    KC_B,    KC_BTN1,
   KC_LALT,         KC_BTN1,     KC_BTN2,       KC_BTN3, KC_LGUI,
-                                                                 KC_DEL,  KC_HOME,
-                                                                          KC_END,
-                                                         KC_BSPC,KC_ESC, KC_LCTL,
+                                                                 KC_DEL,  KC_PGUP,
+                                                                          KC_PGDN,
+                                                        KC_BSPC, KC_ESC,  KC_LCTL,
   // right hand
-  KC_RGHT,      KC_6,    KC_7,    KC_8,    KC_9,              KC_0,           KC_MINS,
+  KC_END,       KC_6,    KC_7,    KC_8,    KC_9,              KC_0,           KC_MINS,
   KC_RBRC,      KC_Y,    KC_U,    KC_I,    KC_O,              KC_P,           KC_LBRC,
                 KC_H,    KC_J,    KC_K,    KC_L,              KC_SCLN,        KC_QUOT,
   KC_EQL,       KC_N,    KC_M,    KC_COMM, KC_DOT,            KC_SLSH,        KC_RSFT,
                          KC_LEFT, KC_DOWN, KC_UP,             KC_RGHT,        KC_RCTL,
-  KC_LALT, CTL_T(KC_ESC),
-  KC_PGUP,
+  KC_RALT, CTL_T(KC_ESC),
+  KC_BTN2,
   KC_BTN3, KC_ENT, KC_SPC
 ),
 /* Keymap 1: Symbol Layer
