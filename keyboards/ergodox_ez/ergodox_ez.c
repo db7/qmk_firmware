@@ -48,7 +48,7 @@ bool i2c_initialized = 0;
 i2c_status_t mcp23018_status = 0x20;
 
 void matrix_init_kb(void) {
-   // keyboard LEDs (see "PWM on ports OC1(A|B|C)" in "teensy-2-0.md")
+    // keyboard LEDs (see "PWM on ports OC1(A|B|C)" in "teensy-2-0.md")
     TCCR1A = 0b10101001;  // set and configure fast PWM
     TCCR1B = 0b00001001;  // set and configure fast PWM
 
@@ -59,10 +59,14 @@ void matrix_init_kb(void) {
     // unused pins - C7, D4, D5, D7, E6
     // set as input with internal pull-up enabled
     DDRC  &= ~(1<<7);
-    //DDRD  &= ~(1<<5 | 1<<4);
-    DDRE  &= ~(1<<6);
     PORTC |=  (1<<7);
-    //PORTD |=  (1<<5 | 1<<4);
+
+#ifndef PS2_MOUSE_ENABLE
+    DDRD  &= ~(1<<5 | 1<<4);
+    PORTD |=  (1<<5 | 1<<4);
+#endif
+
+    DDRE  &= ~(1<<6);
     PORTE |=  (1<<6);
 
     keyboard_config.raw = eeconfig_read_kb();
