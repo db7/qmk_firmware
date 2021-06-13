@@ -238,11 +238,21 @@ static inline void ps2_mouse_scroll_button_task(report_mouse_t *mouse_report) {
             mouse_report->h = mouse_report->x / (PS2_MOUSE_SCROLL_DIVISOR_H);
             mouse_report->x = 0;
             mouse_report->y = 0;
+
+            mouse_report->h = mouse_report->h > PS2_MOUSE_SCROLL_MAX_H ? PS2_MOUSE_SCROLL_MAX_H : mouse_report->h;
+            mouse_report->h = mouse_report->h < -PS2_MOUSE_SCROLL_MAX_H ? -PS2_MOUSE_SCROLL_MAX_H : mouse_report->h;
+            mouse_report->v = mouse_report->v > PS2_MOUSE_SCROLL_MAX_V ? PS2_MOUSE_SCROLL_MAX_V : mouse_report->v;
+            mouse_report->v = mouse_report->v < -PS2_MOUSE_SCROLL_MAX_V ? -PS2_MOUSE_SCROLL_MAX_V : mouse_report->v;
+            
 #ifdef PS2_MOUSE_INVERT_H
             mouse_report->h = -mouse_report->h;
 #endif
 #ifdef PS2_MOUSE_INVERT_V
             mouse_report->v = -mouse_report->v;
+#endif
+
+#ifdef PS2_MOUSE_SCROLL_DELAY
+            _delay_ms(PS2_MOUSE_SCROLL_DELAY);
 #endif
         }
     } else if (0 == (PS2_MOUSE_SCROLL_BTN_MASK & mouse_report->buttons)) {
