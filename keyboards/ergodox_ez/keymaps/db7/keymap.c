@@ -13,7 +13,7 @@ enum custom_keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*
- * Keymap: Default Layer in QWERTY
+ * Keymap: QWERTY BASE
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
  * |   `    |   1  |   2  |   3  |   4  |   5  | HOME |           | END  |   6  |   7  |   8  |   9  |   0  |   -    |
@@ -163,7 +163,14 @@ void matrix_init_user(void) {
 #ifdef RGBLIGHT_COLOR_LAYER_0
   rgblight_setrgb(RGBLIGHT_COLOR_LAYER_0);
 #endif
+
+#ifdef PS2_USE_BUSYWAIT
+    DDRD  |=  (1<<5 | 1<<4);
+    PORTD &= ~(1<<5 | 1<<4);
+#endif
+
 };
+
 
 // Runs whenever there is a layer state change.
 layer_state_t layer_state_set_user(layer_state_t state) {
