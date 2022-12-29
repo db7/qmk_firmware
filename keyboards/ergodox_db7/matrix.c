@@ -3,6 +3,7 @@ Copyright 2012 Jun Wako <wakojun@gmail.com>
 Copyright 2013 Oleg Kostyuk <cub.uanic@gmail.com>
 Copyright 2015 ZSA Technology Labs Inc (@zsa)
 Copyright 2020 Christopher Courtney <drashna@live.com> (@drashna)
+Copyright 2022 Diogo Behrens (@db7)
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -20,6 +21,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /*
+ * To support PS/2 USART, had re-solder column from D2 to D4
+ * PS/2 USART uses D2 and D5.
+ */
+
+/*
  * scan matrix
  */
 #include <stdint.h>
@@ -32,7 +38,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "util.h"
 #include "matrix.h"
 #include "debounce.h"
-#include "ergodox_ez.h"
+#include "ergodox_db7.h"
 
 
 /*

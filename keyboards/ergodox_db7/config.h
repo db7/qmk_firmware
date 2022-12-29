@@ -3,6 +3,7 @@ Copyright 2012 Jun Wako <wakojun@gmail.com>
 Copyright 2013 Oleg Kostyuk <cub.uanic@gmail.com>
 Copyright 2015 ZSA Technology Labs Inc (@zsa)
 Copyright 2020 Christopher Courtney <drashna@live.com> (@drashna)
+Copyright 2022 Diogo Behrens (@db7)
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -23,11 +24,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "config_common.h"
 
 /* USB Device descriptor parameter */
-#define VENDOR_ID       0x3297
-#define DEVICE_VER      0x0001
-#define MANUFACTURER    Massdrop
-#define PRODUCT_ID      0x4974
-#define PRODUCT         ErgoDox db7
+#define VENDOR_ID       0x0db7
+#define DEVICE_VER      0x0002
+#define MANUFACTURER    Unknown
+#define PRODUCT_ID      0x1db7
+#define PRODUCT         ErgoDox db7 mod
 
 /* key matrix size */
 #define MATRIX_ROWS 14

@@ -35,7 +35,8 @@ RGB_MATRIX_ENABLE = no # enable later
 RGB_MATRIX_DRIVER = IS31FL3731
 DEBOUNCE_TYPE = eager_pr
 PS2_MOUSE_ENABLE = yes
-PS2_USE_BUSYWAIT = yes
+#PS2_USE_BUSYWAIT = yes
+PS2_USE_USART = yes
 
 # project specific files
 SRC += matrix.c \
