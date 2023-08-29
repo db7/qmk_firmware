@@ -173,6 +173,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define NO_ACTION_FUNCTION
 #define DEBUG_MATRIX_SCAN_RATE
 
+#define PS2_MOUSE_ROTATE 90
 #ifdef PS2_USE_USART
     #define PS2_CLOCK_PORT  PORTD
     #define PS2_CLOCK_PIN   PIND

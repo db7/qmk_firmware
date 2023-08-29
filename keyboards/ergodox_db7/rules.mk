@@ -14,9 +14,8 @@ API_SYSEX_ENABLE  = no
 RGB_MATRIX_ENABLE = no
 
 DEBOUNCE_TYPE     = eager_pr
-PS2_MOUSE_ENABLE  = no
-PS2_USE_USART     = no
-PS2_USE_BUSYWAIT  = no
+PS2_MOUSE_ENABLE  = yes
+PS2_USE_USART     = yes
 
 SRC += matrix.c
 QUANTUM_LIB_SRC += i2c_master.c
