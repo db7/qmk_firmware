@@ -23,6 +23,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "config_common.h"
 
+//#define UNICODE_KEY_LNX     LCTL(LSFT(KC_U))
+#define UNICODE_KEY_WINC       KC_RALT
+#define UNICODE_SELECTED_MODES UC_WINC
+
 /* USB Device descriptor parameter */
 #define VENDOR_ID       0x0db7
 #define DEVICE_VER      0x0002
